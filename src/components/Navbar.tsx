@@ -1,21 +1,31 @@
-import searchIcon from "@/assets/search.svg"
+import { ReactElement } from "react"
 import { Link } from "react-router-dom"
 
-export default function Navbar() {
+export default function Navbar(
+  {
+    prefix,
+    navigations,
+    suffix
+  }: {
+    prefix?: ReactElement,
+    navigations?: Array<{ name: string, destination: string }>,
+    suffix?: ReactElement
+  }
+) {
   return (
     <header className="text-lg">
       <div className="grid grid-cols-3 border border-black mt-14 h-8">
-        <div className="border border-black"></div>
+        <div className="border border-black">{prefix}</div>
         <nav className="col-start-2 flex justify-around border border-black">
-          <Link to={"/home"} className="flex-1 text-center hover:bg-black hover:text-white">Home</Link>
-          <Link to={"/tags"} className="flex-1 text-center hover:bg-black hover:text-white">Tags</Link>
-          <Link to={"/about"} className="flex-1 text-center hover:bg-black hover:text-white">About</Link>
+          {navigations?.map((navigation) => (
+            <Link
+              to={navigation.destination}
+              className="flex-1 text-center hover:bg-black hover:text-white"
+            >{navigation.name}</Link>
+          ))}
         </nav>
         <div className="search flex items-center gap-2 px-2 border border-black">
-          <label htmlFor="searchInput">
-            <img src={searchIcon} alt="search icon" className="w-5 h-5" />
-          </label>
-          <input id="searchInput" type="text" placeholder="Search" className="w-full outline-none" />
+          {suffix}
         </div>
       </div>
     </header>
