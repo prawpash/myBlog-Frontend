@@ -50,8 +50,8 @@ export default function PostCard({
         </div>
         {/* tags item */}
         <div className="flex flex-wrap gap-1">
-          {tags.map(tag => (
-            <a href="#" className="px-2.5 py-1 bg-black text-white">{tag}</a>
+          {tags.map((tag, index) => (
+            <a href="#" key={index} className="px-2.5 py-1 bg-black text-white">{tag}</a>
           ))}
         </div>
       </div>
