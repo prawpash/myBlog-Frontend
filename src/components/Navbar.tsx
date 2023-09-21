@@ -19,6 +19,7 @@ export default function Navbar(
         <nav className="col-start-2 flex justify-around border border-black">
           {navigations?.map((navigation) => (
             <Link
+              key={navigation.name}
               to={navigation.destination}
               className="flex-1 text-center hover:bg-black hover:text-white"
             >{navigation.name}</Link>
