@@ -6,12 +6,17 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        myGreen: '#A5E962'
+      },
       fontFamily: {
         shpinscher: ["SHPinscher-Regular"],
         jogansoft: ["JoganSoft-rgwKy"]
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography')
+  ],
 }
 
