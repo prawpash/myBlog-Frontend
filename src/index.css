@@ -11,3 +11,20 @@
   font-family: "JoganSoft-rgwKy";
   src: url("../public/fonts/JoganSoft-rgwKy.otf");
 }
+
+@layer utilities {
+  @variants responsive {
+    .no-scrollbar::-webkit-scrollbar{
+      display:none;
+    }
+
+    .no-scrollbar{
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;
+    }
+  }
+}
+
+div[data-radix-popper-content-wrapper] {
+    z-index: 2000 !important;
+}
