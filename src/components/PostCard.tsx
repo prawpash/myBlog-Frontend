@@ -34,8 +34,8 @@ export default function PostCard({
         <div className="relative border border-black min-h-[219px]">
           <img src={thumbnail} alt={thumbnail} className="w-full absolute object-scale-down h-full mx-auto" />
           <div className="absolute w-full h-full bg-black/[.5]"></div>
-          <div className="absolute max-w-[18ch] text-xl text-white px-1.5 py-4">
-            <h1 className="group-hover:underline group-hover:decoration-dashed">
+          <div className="absolute max-w-[18ch] px-1.5 py-4">
+            <h1 className="text-xl text-white group-hover:underline group-hover:decoration-dashed">
               {title}
             </h1>
           </div>
