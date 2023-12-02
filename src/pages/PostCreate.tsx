@@ -2,27 +2,6 @@ import PlusSquareIcon from "@/components/icons/PlusSquareIcon"
 import XSquareIcon from "@/components/icons/XSquareIcon"
 import { useEffect, useRef, useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
-import "@mdxeditor/editor/style.css"
-import {
-  MDXEditor,
-  MDXEditorMethods,
-  BoldItalicUnderlineToggles,
-  BlockTypeSelect,
-  Separator,
-  CreateLink,
-  InsertImage,
-  InsertTable,
-  headingsPlugin,
-  listsPlugin,
-  quotePlugin,
-  thematicBreakPlugin,
-  toolbarPlugin,
-  linkDialogPlugin,
-  linkPlugin,
-  imagePlugin,
-  tablePlugin,
-  markdownShortcutPlugin
-} from "@mdxeditor/editor"
 
 const imageTypeRegex = /image\/(png|jpg|jpeg)/gm
 
@@ -40,7 +19,6 @@ const sourceLabels = [
 export default function PostCreate() {
   const labelsMenuRef = useRef<HTMLDivElement>(null)
   const buttonLabelsMenuRef = useRef<HTMLDivElement>(null)
-  const mdxRef = useRef<MDXEditorMethods>(null)
   const now = new Date()
 
   const [image, setImage] = useState<string>()
@@ -237,39 +215,6 @@ export default function PostCreate() {
         </div>
 
         <div className="mt-14 font-sans">
-          {/* <button onClick={() => mdxRef.current?.setMarkdown('new markdown')}>Set New Markdown</button> */}
-          {/* <button onClick={() => console.log(mdxRef.current?.getMarkdown())}>Get Markdown</button> */}
-          <MDXEditor
-            ref={mdxRef}
-            className="w-full prose max-w-none"
-            contentEditableClassName="z-40"
-            markdown="" plugins={[toolbarPlugin({
-              toolbarContents: () => (<>
-                <BoldItalicUnderlineToggles />
-                <Separator />
-                <BlockTypeSelect />
-                <Separator />
-                <CreateLink />
-                <Separator />
-                <InsertImage />
-                <Separator />
-                <InsertTable />
-              </>)
-            }), ...[
-              headingsPlugin(),
-              listsPlugin(),
-              quotePlugin(),
-              thematicBreakPlugin(),
-              linkPlugin(),
-              linkDialogPlugin(),
-              imagePlugin({
-                imageUploadHandler: () => {
-                  return Promise.resolve('https://picsum.photos/200/300')
-                }
-              }),
-              tablePlugin(),
-              markdownShortcutPlugin()
-            ]]} />
         </div>
       </div >
     </>
