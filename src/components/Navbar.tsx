@@ -14,9 +14,9 @@ export default function Navbar(
 ) {
   return (
     <header className="text-lg">
-      <div className="grid grid-cols-3 border border-black mt-14 h-8">
-        <div className="border border-black">{prefix}</div>
-        <nav className="col-start-2 flex justify-around border border-black">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-0 sm:border sm:border-black mt-14 h-8 px-0.5">
+        <div className="border-2 sm:border border-black">{prefix}</div>
+        <nav className="sm:col-start-2 flex justify-around border-2 sm:border border-black">
           {navigations?.map((navigation) => (
             <Link
               key={navigation.name}
@@ -25,7 +25,7 @@ export default function Navbar(
             >{navigation.name}</Link>
           ))}
         </nav>
-        <div className="search flex items-center gap-2 px-2 border border-black">
+        <div className="search flex items-center gap-2 px-2 border-2 sm:border border-black">
           {suffix}
         </div>
       </div>
