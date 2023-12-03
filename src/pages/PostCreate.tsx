@@ -2,6 +2,8 @@ import PlusSquareIcon from "@/components/icons/PlusSquareIcon"
 import XSquareIcon from "@/components/icons/XSquareIcon"
 import { useEffect, useRef, useState } from "react"
 import { useDebouncedCallback } from "use-debounce"
+import EditorJS from "@/components/EditorJS"
+import { OutputData } from "@editorjs/editorjs"
 
 const imageTypeRegex = /image\/(png|jpg|jpeg)/gm
 
@@ -21,6 +23,10 @@ export default function PostCreate() {
   const buttonLabelsMenuRef = useRef<HTMLDivElement>(null)
   const now = new Date()
 
+  const [editorText, setEditorText] = useState<OutputData>({
+    time: now.getTime(),
+    blocks: [],
+  })
   const [image, setImage] = useState<string>()
   const [selectedLabels, setSelectedLabels] = useState<string[]>([])
   const [labels, setLabels] = useState<string[]>()
@@ -214,7 +220,8 @@ export default function PostCreate() {
           </div>
         </div>
 
-        <div className="mt-14 font-sans">
+        <div className="mt-14 font-sans prose w-full max-w-full">
+          <EditorJS data={editorText} onChange={setEditorText} />
         </div>
       </div >
     </>
