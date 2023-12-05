@@ -120,14 +120,14 @@ export default function PostCreate() {
         </div>
 
         {/* body */}
-        <div className="grid grid-cols-3 grid-rows-1 min-h-[100px] py-3.5 max-h-[340px]">
-          <button className={`row-start-1 row-end-1 w-full h-full max-w-[250px] max-h-[50px] font-bold bg-red-400 hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 grid-rows-3 sm:grid-rows-1 min-h-[100px] gap-2 sm:gap-0 py-3.5 sm:max-h-[340px]">
+          <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold bg-red-400 hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
             Cancel
           </button>
-          <button className={`row-start-1 row-end-1 w-full h-full max-w-[250px] max-h-[50px] font-bold bg-myGreen hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
+          <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold bg-myGreen hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
             Save As Draft
           </button>
-          <button className={`row-start-1 row-end-1 w-full h-full max-w-[250px] max-h-[50px] font-bold hover:bg-black hover:text-white border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
+          <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold hover:bg-black hover:text-white border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
             Publish
           </button>
         </div>
