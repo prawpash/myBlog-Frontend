@@ -97,6 +97,11 @@ export default function PostCreate() {
     setOpenlabelsMenu(!openLabelsMenu)
   }
 
+  function savePost(content: OutputData, isPublish: boolean = false) {
+    console.log(content)
+    console.log(isPublish)
+  }
+
   useEffect(() => {
     const availableLabels = sourceLabels.filter((label) => !(selectedLabels.includes(label)))
     setLabels(availableLabels)
@@ -124,10 +129,16 @@ export default function PostCreate() {
           <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold bg-red-400 hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
             Cancel
           </button>
-          <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold bg-myGreen hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
+          <button
+            onClick={() => savePost(editorText)}
+            className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold bg-myGreen hover:bg-red-300 border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}
+          >
             Save As Draft
           </button>
-          <button className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold hover:bg-black hover:text-white border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}>
+          <button
+            onClick={() => savePost(editorText, true)}
+            className={`sm:row-start-1 sm:row-end-1 w-full h-full max-w-[250px] min-h-[40px] sm:max-h-[50px] font-bold hover:bg-black hover:text-white border-2 border-black place-self-center flex items-center justify-center cursor-pointer shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] `}
+          >
             Publish
           </button>
         </div>
